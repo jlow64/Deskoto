@@ -1,0 +1,10 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 50px;
+  color: var(--light-grey);
+  padding: 10%;
+  height: calc(80% - 150px);
+  width: 100%;
+}
