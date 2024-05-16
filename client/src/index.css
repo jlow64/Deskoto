@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,8 +6,19 @@
 }
 
 :root {
+  --light-grey: #4d4d4d;
+  --dark-grey: #1a1a1a;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* general font will be Quicksand */
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+.layout {
+  display: absolute;
+  height: 100vh;
+  width: 100vw;
 }

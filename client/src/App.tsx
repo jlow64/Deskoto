@@ -1,9 +1,5 @@
 function App() {
-  return (
-    <>
-      <div>Deskoto</div>
-    </>
-  );
+  return <>hello</>;
 }
 
 export default App;
