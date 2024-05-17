@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-* {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@338&family=Satisfy&display=swap');
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
 
 :root {
+  --bright-grey: #cccccc;
   --light-grey: #4d4d4d;
   --dark-grey: #1a1a1a;
   font-synthesis: none;
@@ -18,7 +22,9 @@
 }
 
 .layout {
-  display: absolute;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
+  /* overflow: scroll; */
 }
