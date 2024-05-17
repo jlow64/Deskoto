@@ -1,7 +1,9 @@
 .footer-container {
   display: flex;
+  flex: 1;
   background: var(--dark-grey);
   color: var(--light-grey);
   font-weight: 600;
   padding: 5%;
+  max-height: 20%;
 }
