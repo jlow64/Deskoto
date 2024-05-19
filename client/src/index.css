@@ -3,28 +3,35 @@
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 :root {
+  /* colors */
+  --white: #fafafa;
   --bright-grey: #cccccc;
   --light-grey: #4d4d4d;
   --dark-grey: #1a1a1a;
+  /* fonts */
+  --font-quicksand: 'Quicksand', sans-serif;
+  --font-satisfy: 'Satisfy', cursive;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* general font will be Quicksand */
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 500;
+}
+
+div {
+  display: flex;
 }
 
 .layout {
-  display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
-  /* overflow: scroll; */
+  /* general font will be Quicksand */
+  font-family: var(--font-quicksand);
+  font-weight: 500;
 }

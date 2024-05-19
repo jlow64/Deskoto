@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-type navStateProps = 'home' | 'shop' | 'about' | 'contact';
+type menuProps = 'home' | 'shop' | 'about' | 'contact';
 
 const Navbar = () => {
-  const [navState, setNavState] = useState<navStateProps>('home');
+  const [menu, setMenu] = useState<menuProps>('home');
   const [hideMenu, setHideMenu] = useState<boolean>(true);
+  const [cartCount, setCartCount] = useState<number>(0);
   return (
     <nav className="nav-container">
       <div className="notification-container">
@@ -15,7 +16,7 @@ const Navbar = () => {
       </div>
       <div className="nav-menu-container">
         <div className="logo-container">
-          <Link className="nav-logo" onClick={() => setNavState('home')} to="/">
+          <Link className="nav-logo" onClick={() => setMenu('home')} to="/">
             Deskoto
           </Link>
           <img
@@ -26,47 +27,43 @@ const Navbar = () => {
           />
         </div>
         <ul className={`nav-menu ${hideMenu && 'hide'}`}>
-          <Link onClick={() => setNavState('home')} className="nav-item" to="/">
+          <Link onClick={() => setMenu('home')} className="nav-item" to="/">
             <li>
               Home
-              {navState === 'home' && <hr />}
+              {menu === 'home' && <hr />}
             </li>
           </Link>
-          <Link
-            onClick={() => setNavState('shop')}
-            className="nav-item"
-            to="/shop"
-          >
+          <Link onClick={() => setMenu('shop')} className="nav-item" to="/shop">
             <li>
               Shop
-              {navState === 'shop' && <hr />}
+              {menu === 'shop' && <hr />}
             </li>
           </Link>
           <Link
-            onClick={() => setNavState('about')}
+            onClick={() => setMenu('about')}
             className="nav-item"
             to="/about"
           >
             <li>
               About
-              {navState === 'about' && <hr />}
+              {menu === 'about' && <hr />}
             </li>
           </Link>
           <Link
-            onClick={() => setNavState('contact')}
+            onClick={() => setMenu('contact')}
             className="nav-item"
             to="/contact"
           >
             <li>
               Contact
-              {navState === 'contact' && <hr />}
+              {menu === 'contact' && <hr />}
             </li>
           </Link>
         </ul>
         <div className={`nav-login-cart ${hideMenu && 'hide'}`}>
           <button>Login</button>
           <img width="35px" src="/assets/shopping-bag-pocket.svg" alt="" />
-          <div className="nav-cart-count">0</div>
+          <div className="nav-cart-count">{cartCount}</div>
         </div>
       </div>
     </nav>
