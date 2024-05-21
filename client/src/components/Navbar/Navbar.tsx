@@ -1,5 +1,5 @@
 // Need to create a responsive navbar. Ideally desktop + mobile
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -9,6 +9,11 @@ const Navbar = () => {
   const [menu, setMenu] = useState<menuProps>('home');
   const [hideMenu, setHideMenu] = useState<boolean>(true);
   const [cartCount, setCartCount] = useState<number>(0);
+
+  useEffect(() => {
+    setCartCount(0);
+  }, []);
+
   return (
     <nav className="nav-container">
       <div className="notification-container">
@@ -60,10 +65,12 @@ const Navbar = () => {
             </li>
           </Link>
         </ul>
-        <div className={`nav-login-cart ${hideMenu && 'hide'}`}>
-          <button>Login</button>
-          <img width="35px" src="/assets/shopping-bag-pocket.svg" alt="" />
-          <div className="nav-cart-count">{cartCount}</div>
+        <div className={`nav-login-container ${hideMenu && 'hide'}`}>
+          <button onClick={() => alert('Login popup')}>Login</button>
+          <Link to="/cart" className="nav-cart">
+            <img width="35px" src="/assets/shopping-bag-pocket.svg" alt="" />
+            <div className="nav-cart-count">{cartCount}</div>
+          </Link>
         </div>
       </div>
     </nav>

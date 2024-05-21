@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from 'pages/Home';
-import About from 'pages/About';
-import Contact from 'pages/Contact';
-import Error from 'pages/Error';
-import Shop from './pages/Shop';
-import Register from 'pages/auth/Register';
+import { Home, Error, About, Contact, Register, Shop, Cart } from 'pages/index';
 import App from './App';
 import './index.css';
-
+/*
+Need to link global state management over here. Also need to link with 
+react query here for a logged in user or either save a cart items on cookies. 
+Need to determine how and how often the app should sync with the server and
+what information should be synced.
+*/
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/shop',
         element: <Shop />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
   },

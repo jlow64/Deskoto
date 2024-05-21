@@ -3,5 +3,6 @@
   color: var(--light-grey);
   font-weight: 600;
   padding: 5rem;
-  height: 20svh;
+  flex-basis: 20svh;
+  flex-shrink: 0;
 }

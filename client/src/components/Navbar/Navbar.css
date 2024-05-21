@@ -1,5 +1,6 @@
 .nav-container {
-  box-shadow: 0 1px 3px -2px #000000;
+  box-shadow: 0px 2px 8px -2px #000000;
+  z-index: 1;
   position: static;
   top: 0;
 }
@@ -69,13 +70,12 @@
   color: var(--light-grey);
 }
 
-.nav-login-cart {
-  display: flex;
+.nav-login-container {
   align-items: center;
   gap: 3rem;
 }
 
-.nav-login-cart button {
+.nav-login-container button {
   font-size: 1rem;
   border: none;
   background: var(--white);
@@ -86,12 +86,13 @@
   box-shadow: 0 1px 5px -2px black;
 }
 
-.nav-login-cart button:active {
+.nav-login-container button:active {
   background: var(--light-grey);
-  color: white;
+  color: var(--white);
 }
 
-.nav-login-cart img {
+.nav-cart {
+  display: flex;
   cursor: pointer;
 }
 
@@ -101,11 +102,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -3.6rem;
-  margin-top: -1.8rem;
+  margin-left: -0.8rem;
+  margin-top: -0.5rem;
   font-weight: 800;
   background: red;
-  color: white;
+  color: var(--white);
   border-radius: 50%;
 }
 
