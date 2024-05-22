@@ -1,0 +1,25 @@
+.product-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 50%;
+  border: 2px solid red;
+}
+
+.image-container {
+  grid-area: 2 / 1 / 2 / 1;
+  background: var(--bright-grey);
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container {
+  flex-direction: column;
+  justify-content: left;
+  grid-area: 2 / 2 / 2 / 2;
+  outline: red dashed 1px;
+}
+
+.description-box {
+  outline: red dashed 1px;
+}
