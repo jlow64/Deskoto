@@ -1,5 +1,8 @@
+import { PopularDiv } from './styles';
 const Popular = () => {
-  return <div>Popular</div>;
+  return (
+    <PopularDiv>Opening Special! (preview product display here)</PopularDiv>
+  );
 };
 
 export default Popular;

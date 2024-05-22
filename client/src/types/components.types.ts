@@ -1,19 +1,19 @@
-export type categories = 'desk' | 'accessory';
-export type tags = 'cool' | 'cute' | 'cat' | 'dog' | 'animal';
-export type detailType = 'size' | 'color';
-export type details = {
-  type: detailType;
+export type Categories = 'desk' | 'accessory';
+export type Tags = 'cool' | 'cute' | 'cat' | 'dog' | 'animal';
+export type DetailType = 'size' | 'color';
+export type Details = {
+  type: DetailType;
   options: Array<string>;
 };
 
-export interface product {
+export interface Product {
   productId: number;
   stars: number;
   reviews: number;
   price: number;
   name: string;
   description: string;
-  details: Array<details>;
-  category: Array<categories>;
-  tags: Array<tags>;
+  details: Array<Details>;
+  category: Array<Categories>;
+  tags: Array<Tags>;
 }

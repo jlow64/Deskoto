@@ -8,8 +8,10 @@ with trusted third parties. Will need to link with recoil. Another option
 will be to also store the cart information state within cookies for unregistered
 users.
 */
+import { CartContainer } from './style';
+
 const Cart = () => {
-  return <div>Cart</div>;
+  return <CartContainer>Cart</CartContainer>;
 };
 
 export default Cart;

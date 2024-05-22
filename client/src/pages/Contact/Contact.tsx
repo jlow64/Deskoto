@@ -1,10 +1,11 @@
-import './Contact.css';
+import { ContactContainer } from './style';
+
 const Contact = () => {
   return (
-    <div className="contact-container">
-      <div>Frequently asked Questions</div>
-      <div>Email: support@deskoto.com</div>
-    </div>
+    <ContactContainer>
+      <p>Frequently asked Questions</p>
+      <p>Email: support@deskoto.com</p>
+    </ContactContainer>
   );
 };
 

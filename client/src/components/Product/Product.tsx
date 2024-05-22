@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
-import type { product } from 'src/types/components.types';
+import type { Product } from 'src/types/components.types';
 import BreadCrumbs from 'components/BreadCrumbs';
 import ReviewBar from 'components/ReviewBar';
 import ProductDetails from 'components/ProductDetails';
-import './Product.css';
+import {
+  ProductContainer,
+  ImageContainer,
+  InfoContainer,
+  DescriptionBox,
+} from './style';
 
 /* This component will show a products information, image gallery, description
 and other details. Needs to take receive a prop to show this information,
 perhaps a unique key connected to api endpoint to show relevant info.
 Needs to also include a breadcrumb element, to show the product tree.
 */
-const mockProductData: product = {
+const mockProductData: Product = {
   productId: 0,
   stars: 4.5,
   reviews: 10,
@@ -28,7 +33,7 @@ const mockProductData: product = {
 };
 
 const Product = ({ productId = 0 }) => {
-  const [productState, setProductState] = useState<product>();
+  const [productState, setProductState] = useState<Product>();
 
   useEffect(() => {
     // Connect to API to consume and show a product info
@@ -36,19 +41,19 @@ const Product = ({ productId = 0 }) => {
     setProductState(mockProductData);
   }, [productId]);
   return (
-    <section className="product-container">
+    <ProductContainer>
       <BreadCrumbs />
-      <div className="image-container">WIP Image Gallery</div>
-      <div className="info-container">
+      <ImageContainer>WIP Image Gallery</ImageContainer>
+      <InfoContainer>
         <h1>{productState?.name}</h1>
         <ReviewBar
           stars={productState?.stars}
           reviews={productState?.reviews}
         />
-        <p className="description-box">{productState?.description}</p>
+        <DescriptionBox>{productState?.description}</DescriptionBox>
         <ProductDetails details={productState?.details} />
-      </div>
-    </section>
+      </InfoContainer>
+    </ProductContainer>
   );
 };
 

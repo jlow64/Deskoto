@@ -1,6 +1,7 @@
 /*
  Need to create typings for the theme.
 */
+
 export const theme = {
   font: {
     quicksand: 'Quicksand',

@@ -1,5 +1,7 @@
+import { ErrorContainer } from './style';
+
 const Error = () => {
-  return <div>Error, please contact the site admin.</div>;
+  return <ErrorContainer>Error, please contact the site admin.</ErrorContainer>;
 };
 
 export default Error;
