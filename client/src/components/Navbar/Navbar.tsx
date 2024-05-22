@@ -1,75 +1,82 @@
 // Need to create a responsive navbar. Ideally desktop + mobile
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import { useEffect, useState } from 'react';
+import {
+  NavContainer,
+  NotificationContainer,
+  LogoContainer,
+  NavLogo,
+  NavMenuContainer,
+  NavMenu,
+  NavItem,
+  NavMenuHr,
+  MenuIcon,
+  NavLoginContainer,
+  NavLoginButton,
+  NavCart,
+  NavCartCount,
+} from './style';
 
-type navStateProps = 'home' | 'shop' | 'about' | 'contact';
+type menuProps = 'home' | 'shop' | 'about' | 'contact';
 
 const Navbar = () => {
-  const [navState, setNavState] = useState<navStateProps>('home');
-  const [hideMenu, setHideMenu] = useState<boolean>(true);
+  const [menu, setMenu] = useState<menuProps>('home');
+  const [visible, setVisible] = useState<boolean>(true);
+  const [cartCount, setCartCount] = useState<number>(0);
+
+  useEffect(() => {
+    setCartCount(0);
+  }, []);
+
   return (
-    <nav className="nav-container">
-      <div className="notification-container">
+    <NavContainer>
+      <NotificationContainer>
         Free Shipping for orders above $50!
-      </div>
-      <div className="nav-menu-container">
-        <div className="logo-container">
-          <Link className="nav-logo" onClick={() => setNavState('home')} to="/">
+      </NotificationContainer>
+      <NavMenuContainer>
+        <LogoContainer>
+          <NavLogo onClick={() => setMenu('home')} to="/">
             Deskoto
-          </Link>
-          <img
-            onClick={() => setHideMenu(!hideMenu)}
+          </NavLogo>
+          <MenuIcon
+            onClick={() => setVisible(!visible)}
             className="menu-icon"
-            src="/assets/menu.svg"
+            src="/assets/images/menu.svg"
             alt=""
           />
-        </div>
-        <ul className={`nav-menu ${hideMenu && 'hide'}`}>
-          <Link onClick={() => setNavState('home')} className="nav-item" to="/">
-            <li>
-              Home
-              {navState === 'home' && <hr />}
-            </li>
-          </Link>
-          <Link
-            onClick={() => setNavState('shop')}
-            className="nav-item"
-            to="/shop"
-          >
-            <li>
-              Shop
-              {navState === 'shop' && <hr />}
-            </li>
-          </Link>
-          <Link
-            onClick={() => setNavState('about')}
-            className="nav-item"
-            to="/about"
-          >
-            <li>
-              About
-              {navState === 'about' && <hr />}
-            </li>
-          </Link>
-          <Link
-            onClick={() => setNavState('contact')}
-            className="nav-item"
-            to="/contact"
-          >
-            <li>
-              Contact
-              {navState === 'contact' && <hr />}
-            </li>
-          </Link>
-        </ul>
-        <div className={`nav-login-cart ${hideMenu && 'hide'}`}>
-          <button>Login</button>
-          <img width="35px" src="/assets/shopping-bag-pocket.svg" alt="" />
-          <div className="nav-cart-count">0</div>
-        </div>
-      </div>
-    </nav>
+        </LogoContainer>
+        <NavMenu visible={visible}>
+          <NavItem onClick={() => setMenu('home')} to="/">
+            Home
+            {menu === 'home' && <NavMenuHr />}
+          </NavItem>
+          <NavItem onClick={() => setMenu('shop')} to="/shop">
+            Shop
+            {menu === 'shop' && <NavMenuHr />}
+          </NavItem>
+          <NavItem onClick={() => setMenu('about')} to="/about">
+            About
+            {menu === 'about' && <NavMenuHr />}
+          </NavItem>
+          <NavItem onClick={() => setMenu('contact')} to="/contact">
+            Contact
+            {menu === 'contact' && <NavMenuHr />}
+          </NavItem>
+        </NavMenu>
+        <NavLoginContainer visible={visible}>
+          <NavLoginButton onClick={() => alert('Login popup')}>
+            Login
+          </NavLoginButton>
+          <NavCart to="/cart">
+            <img
+              width="35px"
+              src="/assets/images/shopping-bag-pocket.svg"
+              alt="Shopping cart"
+            />
+            <NavCartCount>{cartCount}</NavCartCount>
+          </NavCart>
+        </NavLoginContainer>
+      </NavMenuContainer>
+    </NavContainer>
   );
 };
 

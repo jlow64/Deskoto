@@ -1,11 +1,11 @@
-import './Footer.css';
+import { FooterContainer } from './style';
 
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <FooterContainer>
       Deskoto: copyright, privacy policy, sitemap, logo, contact info, social
       media icons, email signup forms
-    </div>
+    </FooterContainer>
   );
 };
 
