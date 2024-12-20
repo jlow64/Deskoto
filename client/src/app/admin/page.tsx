@@ -1,6 +1,6 @@
 import { formatCurrency, formatNumber } from '@/lib/formatters';
-import { getSalesData, getUserData, getProductData } from '@/app/admin/actions';
-import DashboardCard from '@/components/DashboardCard';
+import DashboardCard from '@/app/admin/_components/DashboardCard';
+import { getSalesData, getUserData, getProductData } from '@/actions';
 
 export default async function AdminDashboard() {
   const [
@@ -8,8 +8,9 @@ export default async function AdminDashboard() {
     { averageValuePerUser, userCount },
     { activeCount, inactiveCount },
   ] = await Promise.all([getSalesData(), getUserData(), getProductData()]);
+
   const classes = {
-    container: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4',
+    container: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4',
   };
   return (
     <div className={classes.container}>
