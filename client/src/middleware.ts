@@ -30,5 +30,5 @@ const isAuthenticated = async (req: NextRequest) => {
 };
 
 export const config = {
-  mather: '/admin/:path*',
+  matcher: '/admin/:path*',
 };
