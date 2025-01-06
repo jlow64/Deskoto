@@ -5,7 +5,7 @@ import ProductsTable from './_components/ProductsTable';
 
 export default function AdminProductsPage() {
   const classes = {
-    container: 'flex flex-col p-10',
+    container: 'flex flex-col',
     header: 'flex justify-between items-center gap-4',
   };
   return (
