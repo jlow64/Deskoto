@@ -5,6 +5,9 @@ export const dynamic = 'force-dynamic';
 export default function AdminLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const classes = {
+    container: 'p-10',
+  };
   return (
     <>
       <Navbar>
@@ -13,7 +16,7 @@ export default function AdminLayout({
         <NavLink href="/admin/users">Users</NavLink>
         <NavLink href="/admin/orders">Orders</NavLink>
       </Navbar>
-      {children}
+      <main className={classes.container}>{children}</main>
     </>
   );
 }

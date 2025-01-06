@@ -21,8 +21,8 @@ export default async function AdminDashboard() {
       />
       <DashboardCard
         title="Customers"
-        subtitle={`${formatNumber(averageValuePerUser)} Average Value`}
-        body={formatCurrency(userCount)}
+        subtitle={`${formatCurrency(averageValuePerUser)} Average Value`}
+        body={formatNumber(userCount)}
       />
       <DashboardCard
         title="Active Products"
